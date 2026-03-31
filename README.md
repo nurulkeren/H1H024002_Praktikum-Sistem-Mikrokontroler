@@ -32,13 +32,13 @@ Penjelasan:
 4. Jika program yang dibuat memiliki alur mati → lambat → cepat → reset (mati),
 ubah menjadi LED tidak langsung reset → tetapi berubah dari cepat → sedang →
 mati dan berikan penjelasan disetiap baris kode nya dalam bentuk README.md!
-Jawab: 
+Jawab:
 Deskripsi Program
-
 Program ini mengatur LED agar berkedip dengan pola:
 mati → lambat → cepat → sedang → mati
 
-Source Code:
+Source Code
+```cpp
 const int ledPin = 6;      // Menentukan pin LED
 int timeDelay = 1000;      // Delay awal (lambat)
 bool kembali = false;      // Penanda untuk memperlambat kembali
@@ -69,10 +69,16 @@ void loop() {
     }
   }
 }
+```
 
 Penjelasan Singkat
+
 * Program awalnya mempercepat kedipan LED
 * Setelah mencapai cepat maksimal, LED diperlambat kembali
 * Saat kembali ke lambat, program berhenti (LED mati)
+
+```
+```
+
 
 
