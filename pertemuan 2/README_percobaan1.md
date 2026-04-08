@@ -1,6 +1,6 @@
 1. Gambarkan rangkaian schematic yang digunakan pada percobaan!<br>
-   Jawab:
-2. Apa yang terjadi jika nilai num lebih dari 15?<br>
+   Jawab: https://www.tinkercad.com/things/5F15UpDN3vd/editel?returnTo=%2Fdashboard&sharecode=GYoE7KyAog9svOJ0rKCKgU7jAsMT9c9iScUhafUfnw4
+3. Apa yang terjadi jika nilai num lebih dari 15?<br>
    Jawab:
 Tidak ada pola segment yang cocok,<br>
 Tampilan bisa:<br>
