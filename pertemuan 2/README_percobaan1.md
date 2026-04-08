@@ -1,4 +1,4 @@
-1. Gambarkan rangkaian schematic yang digunakan pada percobaan!
+1. Gambarkan rangkaian schematic yang digunakan pada percobaan!<br>
    Jawab:
 2. Apa yang terjadi jika nilai num lebih dari 15?
    Jawab:
