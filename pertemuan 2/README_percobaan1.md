@@ -1,20 +1,20 @@
 1. Gambarkan rangkaian schematic yang digunakan pada percobaan!<br>
    Jawab:
-2. Apa yang terjadi jika nilai num lebih dari 15?
+2. Apa yang terjadi jika nilai num lebih dari 15?<br>
    Jawab:
-Tidak ada pola segment yang cocok,
-Tampilan bisa:
+Tidak ada pola segment yang cocok,<br>
+Tampilan bisa:<br>
 - Kosong (blank)
-- Menampilkan pola tidak jelas (acak) Atau tetap di angka terakhir (tergantung kode)
+- Menampilkan pola tidak jelas (acak) Atau tetap di angka terakhir (tergantung kode)<br>
 3. Apakah program ini menggunakan common cathode atau common anode? Jelaskan
-alasanya!
-Jawab: Common Cathode,
-Alasan:
+alasanya!<br>
+Jawab: Common Cathode,<br>
+Alasan:<br>
 - Segment menyala saat diberi HIGH (1)
-- Arduino mengirim logika HIGH → LED menyala
+- Arduino mengirim logika HIGH → LED menyala<br>
 4. Modifikasi program agar tampilan berjalan dari F ke 0 dan berikan penjelasan disetiap
-baris kode nya dalam bentuk README.md!
-Jawab:
+baris kode nya dalam bentuk README.md!<br>
+Jawab:<br>
 
 ```cpp
 #include <Arduino.h> // library utama Arduino
