@@ -1,8 +1,5 @@
 1. Gambarkan rangkaian schematic yang digunakan pada percobaan!<br>
-   Jawab: - Seven segment berhasil menampilkan angka 0–F<br>
-          - Counter berjalan otomatis<br>
-          - Push button dapat mengontrol nilai counter<br>
-          - Sistem input-output berjalan dengan baik<br>
+   Jawab: https://www.tinkercad.com/things/38ocYfC7Nxj/editel?returnTo=%2Fdashboard&sharecode=dIzHYZJXhFBaOeXdah1mqTc-GbCO5NSwlsQOffpKUV8 <br>
           
 2. Mengapa pada push button digunakan mode INPUT_PULLUP pada Arduino Uno? Apa keuntungannya dibandingkan rangkaian biasa?<br>
 jawab: SMode INPUT_PULLUP digunakan untuk mengaktifkan resistor pull-up internal pada Arduino, sehingga pin input secara default berada pada kondisi HIGH.<br>
@@ -18,43 +15,92 @@ Konsep Rangkaian<br>
 - Keduanya menggunakan INPUT_PULLUP<br>
 program:<br>
 ```cpp
-// Deklarasi pin tombol
-const int btnUp = 2;      // tombol tambah
-const int btnDown = 3;    // tombol kurang
+#include <Arduino.h>
 
-int counter = 0;          // variabel counter
+// Pin 7-Segment (a b c d e f g dp)
+const int segmentPins[8] = {7, 6, 5, 11, 10, 8, 9, 4};
 
-void setup() {
-  pinMode(btnUp, INPUT_PULLUP);     // set tombol up sebagai input pullup
-  pinMode(btnDown, INPUT_PULLUP);   // set tombol down sebagai input pullup
+// Push button
+const int btnUp = 2;     // tombol tambah
+const int btnDown = 3;   // tombol kurang
 
-  // inisialisasi pin seven segment sebagai output
-  for(int i = 4; i <= 11; i++){
-    pinMode(i, OUTPUT);
+// Counter
+int counter = 0;
+
+// State button
+bool lastUpState = HIGH;
+bool lastDownState = HIGH;
+
+// Pola digit 0-F
+byte digitPattern[16][8] = {
+  {1,1,1,1,1,1,0,0}, //0
+  {0,1,1,0,0,0,0,0}, //1
+  {1,1,0,1,1,0,1,0}, //2
+  {1,1,1,1,0,0,1,0}, //3
+  {0,1,1,0,0,1,1,0}, //4
+  {1,0,1,1,0,1,1,0}, //5 
+  {1,0,1,1,1,1,1,0}, //6
+  {1,1,1,0,0,0,0,0}, //7
+  {1,1,1,1,1,1,1,0}, //8
+  {1,1,1,1,0,1,1,0}, //9
+  {1,1,1,0,1,1,1,0}, //A
+  {0,0,1,1,1,1,1,0}, //b
+  {1,0,0,1,1,1,0,0}, //C
+  {0,1,1,1,1,0,1,0}, //d
+  {1,0,0,1,1,1,1,0}, //E
+  {1,0,0,0,1,1,1,0}  //F
+};
+
+// Tampilkan digit
+void displayDigit(int num)
+{
+  for(int i=0; i<8; i++)
+  {
+    digitalWrite(segmentPins[i], !digitPattern[num][i]);
   }
 }
 
-void loop() {
-  // jika tombol up ditekan
-  if(digitalRead(btnUp) == LOW){
-    counter++;               // tambah nilai
-    if(counter > 15) counter = 0; // reset jika lebih dari 15
-    delay(200);              // delay untuk debounce
+void setup()
+{
+  for(int i=0; i<8; i++)
+  {
+    pinMode(segmentPins[i], OUTPUT);
   }
 
-  // jika tombol down ditekan
-  if(digitalRead(btnDown) == LOW){
-    counter--;               // kurangi nilai
-    if(counter < 0) counter = 15; // kembali ke 15 jika kurang dari 0
+  pinMode(btnUp, INPUT_PULLUP);
+  pinMode(btnDown, INPUT_PULLUP);
+
+  displayDigit(counter);
+}
+
+void loop()
+{
+  bool currentUp = digitalRead(btnUp);
+  bool currentDown = digitalRead(btnDown);
+
+  // Tombol tambah
+  if (lastUpState == HIGH && currentUp == LOW)
+  {
+    counter++;
+    if(counter > 15) counter = 0;
+    displayDigit(counter);
     delay(200);
   }
 
-  tampilkanAngka(counter);   // tampilkan ke seven segment
+  // Tombol kurang
+  if (lastDownState == HIGH && currentDown == LOW)
+  {
+    counter--;
+    if(counter < 0) counter = 15;
+    displayDigit(counter);
+    delay(200);
+  }
+
+  lastUpState = currentUp;
+  lastDownState = currentDown;
 }
 
-// fungsi untuk menampilkan angka
-void tampilkanAngka(int num){
-  // (isi sesuai mapping segment kalian)
-}
+
+
 '''
 ---
