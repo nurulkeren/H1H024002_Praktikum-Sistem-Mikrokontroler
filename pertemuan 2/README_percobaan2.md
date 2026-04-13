@@ -17,7 +17,7 @@ Konsep Rangkaian<br>
 - Push button 2 → untuk decrement (mengurangi nilai)<br>
 - Keduanya menggunakan INPUT_PULLUP<br>
 program:<br>
-
+```cpp
 // Deklarasi pin tombol
 const int btnUp = 2;      // tombol tambah
 const int btnDown = 3;    // tombol kurang
@@ -56,3 +56,5 @@ void loop() {
 void tampilkanAngka(int num){
   // (isi sesuai mapping segment kalian)
 }
+'''
+---
