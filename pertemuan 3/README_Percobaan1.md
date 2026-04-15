@@ -106,7 +106,8 @@ void loop() {
     }
   }
 }
-'''
+```
+---
 
 5) Tentukan apakah menggunakan delay() atau milis()! Jelaskan pengaruhnya terhadap
 sistem<br>
