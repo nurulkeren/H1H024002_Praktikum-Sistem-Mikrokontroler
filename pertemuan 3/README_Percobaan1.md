@@ -36,7 +36,7 @@ Tanpa Serial.available(), Arduino akan tetap mencoba membaca data meskipun tidak
 jika ‘2’ aktif maka LED akan terus berkedip sampai perintah selanjutnya diberikan dan
 berikan penjelasan disetiap baris kode nya dalam bentuk README.md!<br>
 jawab:
-'''
+```cpp
 // Menentukan pin LED
 const int ledPin = 13;
 
@@ -106,8 +106,14 @@ void loop() {
     }
   }
 }
----'''
+'''
 
 5) Tentukan apakah menggunakan delay() atau milis()! Jelaskan pengaruhnya terhadap
 sistem<br>
-jawab:
+jawab: Pada praktikum ini, metode yang paling tepat digunakan adalah millis().<br>
+
+Alasan Pemilihan millis()<br>
+Non-blocking: Tidak menghentikan jalannya program.<br>
+Responsif: Arduino tetap dapat menerima input dari Serial Monitor.<br>
+Efisien: Mendukung multitasking sederhana, seperti membaca input sambil membuat LED berkedip.<br>
+Stabil: Cocok untuk sistem interaktif dan real-time.<br>
