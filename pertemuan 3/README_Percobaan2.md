@@ -31,7 +31,7 @@ Tampilan jika potensiometer dalam kondisi diputar paling kiri<br>
 - ADC: 0 0% | setCursor(0, 0) dan Bar (level) | setCursor(0, 1)<br>
 - Berikan penjelasan disetiap baris kode nya dalam bentuk README.md!<br>
 jawab:<br>
-```
+```cpp
 #include <Wire.h>                  // Library untuk komunikasi I2C
 #include <LiquidCrystal_I2C.h>     // Library untuk mengontrol LCD I2C
 
